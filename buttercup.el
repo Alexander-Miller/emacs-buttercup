@@ -1400,7 +1400,7 @@ current directory."
       (dolist (file (directory-files-recursively
                      dir "\\`test-.*\\.el\\'\\|-tests?\\.el\\'"))
         (when (not (string-match "\\(^\\|/\\)\\." (file-relative-name file)))
-          (load file nil t))))
+          (load (expand-file-name file) nil t))))
     (when patterns
       (buttercup-mark-skipped patterns t))
     (buttercup-run)))
